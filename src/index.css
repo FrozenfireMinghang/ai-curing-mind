@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base colors - calming teal/blue palette */
+    --background: 180 25% 98%;
+    --foreground: 210 40% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 20%;
+
+    /* Primary: Soothing teal color */
+    --primary: 175 60% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Soft blue */
+    --secondary: 210 50% 92%;
+    --secondary-foreground: 210 50% 30%;
+
+    /* Muted: Soft gray with blue undertones */
+    --muted: 210 20% 94%;
+    --muted-foreground: 210 20% 45%;
+
+    /* Accent: Gentle green */
+    --accent: 150 45% 92%;
+    --accent-foreground: 150 45% 30%;
+
+    /* Destructive */
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success */
+    --success: 145 65% 42%;
+    --success-foreground: 0 0% 100%;
+
+    /* Info */
+    --info: 210 65% 50%;
+    --info-foreground: 0 0% 100%;
+
+    /* Warning */
+    --warning: 35 90% 60%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Borders, inputs, etc. */
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 175 60% 40%;
+
+    --radius: 0.6rem;
+
+    /* Sidebar styling */
+    --sidebar-background: 175 30% 97%;
+    --sidebar-foreground: 210 40% 20%;
+    --sidebar-primary: 175 60% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 175 30% 92%;
+    --sidebar-accent-foreground: 175 60% 30%;
+    --sidebar-border: 175 20% 90%;
+    --sidebar-ring: 175 60% 40%;
+  }
+
+  .dark {
+    /* Dark mode - deeper, more muted tones */
+    --background: 210 30% 12%;
+    --foreground: 210 20% 90%;
+
+    --card: 210 30% 16%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 210 30% 16%;
+    --popover-foreground: 210 20% 90%;
+
+    /* Primary: Brighter teal in dark mode */
+    --primary: 175 55% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Deeper blue */
+    --secondary: 210 40% 20%;
+    --secondary-foreground: 210 40% 90%;
+
+    /* Muted colors */
+    --muted: 210 25% 22%;
+    --muted-foreground: 210 20% 65%;
+
+    /* Accent: Deeper green */
+    --accent: 150 30% 20%;
+    --accent-foreground: 150 40% 80%;
+
+    /* Destructive */
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success */
+    --success: 145 65% 35%;
+    --success-foreground: 0 0% 100%;
+
+    /* Info */
+    --info: 210 65% 45%;
+    --info-foreground: 0 0% 100%;
+
+    /* Warning */
+    --warning: 35 90% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Borders, inputs, etc. */
+    --border: 210 25% 24%;
+    --input: 210 25% 24%;
+    --ring: 175 55% 45%;
+
+    /* Sidebar styling */
+    --sidebar-background: 210 30% 18%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 175 55% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 24%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 210 25% 24%;
+    --sidebar-ring: 175 55% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1 {
+    @apply text-3xl font-bold leading-tight md:text-4xl;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold leading-tight md:text-3xl;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    @apply text-xl font-semibold leading-tight md:text-2xl;
+  }
+
+  h4 {
+    @apply text-lg font-semibold leading-tight md:text-xl;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+}
+
+@layer components {
+  /* Chat message styling */
+  .chat-message {
+    @apply p-4 rounded-lg mb-4 animate-fade-in;
+  }
+
+  .chat-message-user {
+    @apply bg-secondary text-secondary-foreground ml-8 mr-2;
+  }
+
+  .chat-message-ai {
+    @apply bg-primary/10 text-foreground mr-8 ml-2;
+  }
+
+  /* Animated elements */
+  .breathing-animation {
+    animation: breathing 4s ease-in-out infinite;
+  }
+
+  @keyframes breathing {
+    0% {
+      transform: scale(0.95);
+    }
+    50% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0.95);
+    }
+  }
+
+  /* Gleaming effect for buttons */
+  .gleam {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gleam::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: gleamEffect 3s infinite;
+  }
+
+  @keyframes gleamEffect {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    50% {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+  }
+
+  /* Accessibility focused styles */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+
+  /* Large, accessible button for all users */
+  .accessible-button {
+    @apply p-4 text-lg rounded-lg focus-ring transition-all;
+  }
+}
